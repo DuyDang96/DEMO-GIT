@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Công Việc</title>
+    <link rel="stylesheet" href="Mini.css">
+</head>
+<body>
+    <div class="todo-card">
+        <!-- Header -->
+        <header class="card-header">
+            <h1 class="card-title">
+                <span>📝</span> Quản Lý Công Việc
+            </h1>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="task-input" 
+                        class="todo-input" 
+                        placeholder="Nhập công việc mới..." 
+                        autocomplete="off"
+                    >
+                    <span id="error-msg" class="error-message">⚠️ Vui lòng nhập tên công việc!</span>
+                </div>
+                <button type="button" id="btn-add" class="btn-add">Thêm</button>
+            </div>
+        </header>
+
+        <!-- Body / Task List -->
+        <main class="card-body">
+            <ul id="todo-list" class="todo-list">
+                <!-- Danh sách công việc sẽ được render tại đây -->
+            </ul>
+        </main>
+
+        <!-- Footer -->
+        <footer class="card-footer">
+            <p class="status-text">
+                <span id="completed-count" class="status-highlight">0</span> / 
+                <span id="total-count" class="status-highlight">0</span> công việc hoàn thành
+            </p>
+            <div id="all-completed-badge" class="all-completed-badge">
+                <span class="badge-icon">✓</span>
+                <span class="badge-text">Hoàn thành tất cả</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal Xác Nhận Xóa Tùy Chỉnh -->
+    <div id="delete-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <line x1="10" y1="11" x2="10" y2="17"></line>
+                    <line x1="14" y1="11" x2="14" y2="17"></line>
+                </svg>
+            </div>
+            <h3 class="modal-title">Xác Nhận Xóa</h3>
+            <p class="modal-desc">
+                Bạn có chắc chắn muốn xóa công việc <strong id="delete-task-title"></strong>?
+                <br><span>⚠️ Hành động này không thể hoàn tác.</span>
+            </p>
+            <div class="modal-actions">
+                <button type="button" id="btn-cancel-delete" class="btn-modal btn-modal-cancel">Hủy</button>
+                <button type="button" id="btn-confirm-delete" class="btn-modal btn-modal-confirm">Xác Nhận Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Mini.js"></script>
+</body>
+</html>
